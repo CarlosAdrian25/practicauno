@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>¿QUIERES SER MI SAN VALENTIN?</title>
+</head>
+<body>
+    <h1>HOLA AMOR TE TENGO UNA PREGUNTA</h1>
+    <h2>¿QUIERES SER MI SAN VALENTIN? ❤❤</h2>
+    <img src="img/bubu.gif" alt="San Valentin">
+    <div class="contenedor">
+        <button class="boton_si" id="boton_si">Sí</button>
+        <button id="boton_no">No</button>
+    </div>
+</body>
+<script>
+    // Inicializamos el factor de escala
+    let scaleFactor = 1;
+
+    // Evento que se ejecuta cuando se hace clic en el botón "No"
+    document.getElementById('boton_no').addEventListener('click', function() {
+        // Incrementa el factor de escala
+        scaleFactor += 0.2;
+
+        // Selecciona el botón "Sí" y aumenta su tamaño
+        document.querySelector('button[class="boton_si"]').style.transform = `scale(${scaleFactor})`;
+
+        // Cambia el texto del h2
+        const h2 = document.querySelector('h2');
+        if (h2.textContent === "¿Por qué dices no?") {
+            h2.textContent = "No, otra vez.";
+        } else {
+            h2.textContent = "¿Por qué dices no?";
+        }
+       // Cambia la imagen en la etiqueta img
+        const img = document.querySelector('img');
+        if (img.src.includes("enojado.gif")) {
+            img.src = "img/duda.gif"; // Cambia a otra imagen
+        } else {
+            img.src = "img/enojado.gif"; // Vuelve a la imagen original
+        }
+    });
+
+    // Evento que se ejecuta cuando se hace clic en el botón "Sí"
+    document.getElementById('boton_si').addEventListener('click', function() {
+        // Redirige a das.html
+        window.location.href = "das.html"; // Cambia la URL a das.html
+    });
+</script>
+
+
+
+</html>
